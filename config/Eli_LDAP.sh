@@ -64,9 +64,9 @@ ldapmodify -Y EXTERNAL  -H ldapi:/// -f db.ldif
 echo 'dn: olcDatabase={1}monitor,cn=config
 changetype: modify
 replace: olcAccess
-olcAccess: {0}to * by dn.base="gidNumber=0,cn=peercred,cn=external, cn=auth" read by dn.base="cn=ldapadm,dc=nti310,
+olcAccess: {0}to * by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=external, cn=auth" read by dn.base="cn=ldapadm,dc=nti310,,dc=local" read by * none' >
 
-ldapmodify -Y EXTERNAL -H ldapi:/// -f monitor.ldif
+ldapmodify -Y EXTERNAL  -H ldapi:/// -f monitor.ldif
 
 #Generates Certs
 
@@ -84,7 +84,6 @@ changetype: modify
 replace: olcTLSCertificateKeyFile
 olcTLSCertificateKeyFile: /etc/openldap/certs/nti310ldapkey.pem" > certs.ldif
 
-
 ldapmodify -Y EXTERNAL  -H ldapi:/// -f certs/ldif
 
 #Test to see if cert config works
@@ -99,7 +98,7 @@ ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetoroperson/ldif
 
 # Creates group and people structure base
 
-echo -e "dn: dc=nti310,dc=local
+echo -e "dn: dc=nti310,dc=local"
 dc: nti310
 objectClass: top
 objectClass: domain
@@ -114,7 +113,15 @@ objectClass: organizationalUnit
 ou: People
 \n
 dn: ou=Group,dc=nti310,dc=local
+objectClass: organizationalUnit
+ou:	Group" > base.ldif
 
+
+setenforce 0
+
+ldapadd -x -W -D "cn=ldapadm,dc=local" -f base.ldif -y -root/ldap_admin_pass
+
+systemctl restart httpd
 
 
 
@@ -208,6 +215,9 @@ dn: ou=Group,dc=nti310,dc=local
 
 
 		
+
+
+
 
 
 
