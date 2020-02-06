@@ -6,6 +6,33 @@ yum install -y git
 cd /tmp
 git clone https://github.com/nic-instruction/hello-nti-310.git
 
+## added thurs2/6/20
+yum install -y nfs-utils
+mkdir /var/nfsshare
+mkdir /var/nfsshare/devstuff
+mkdir /var/nfsshare/testing
+mkdir /var/nfsshare/home_dirs
+chmod -R 777 /var/nfsshare/
+systemctl enable rcpbind
+systemctl enable nfs-server
+systemctl enable nfs-lock
+systemctl enable nfs-idmap
+systemctl start rpcbind
+systemctl start nfs-server
+systemctl start nfs-lock
+systemctl start nfs-idmap
+cd /var/nfsshare/
+
+echo "/var/nfsshare/home_dirs *(rw,sync,no_all_squash)
+/var/nfsshare/devstuff  *(rw,sync,no_all_squash)
+/var/nfsshare/testing   *(rw,sync,no_all_squash)" >> /etc/exports
+
+systemctl restart nfs-server
+#install net tools to get ifconfig
+yum -y install net-tools
+
+# use ifconfig to find your IP address, you will use this for the client.
+
 yum install -y openldap-servers openldap-clients
 
 cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
