@@ -1,4 +1,6 @@
 #!/bin/bash
+#http://35.235.89.72/phpldapadmin/cmd.php (Links to an external site.)
+#Password - ZfYtM7Gc
 
 yum install -y git
 cd /tmp
