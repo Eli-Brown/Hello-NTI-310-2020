@@ -1,6 +1,6 @@
 
 #!/bin/bash
-# note, this is only part of the ldap client install script.  These are the relevent sed lines.
+# note, this is only part of the ldap CLIENT/server install script.  These are the relevent sed lines.
 
 
 
