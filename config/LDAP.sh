@@ -1,5 +1,7 @@
 #!/bin/bash
-
+# ip address /phpldapadmin/cmd.php
+## user : pgdbuser
+## Password : pgdbpass
 yum install -y git
 cd /tmp
 git clone https://github.com/nic-instruction/hello-nti-310.git
