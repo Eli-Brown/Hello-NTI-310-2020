@@ -9,7 +9,12 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get --yes install libnss-ldap libpam-ldap ldap-utils nslcd debconf-utils git nfs-client
 unset DEBIAN_FRONTEND
 
+apt-get install nfs-client
 
+showmount -e $ipaddress # where $ipaddress is the ip of your nfs server
+mkdir /mnt/test 
+echo "10.128.0.4:/var/nfsshare/testing        /mnt/test       nfs     defaults 0 0" >> /etc/fstab
+mount -a
 
 
 sed -i 's/passwd:         compat systemd/passwd:         compat systemd ldap/g' /etc/nsswitch.conf
