@@ -1,6 +1,6 @@
 #!/bin/bash
 #for NFS-SERVER setup
-
+#working 2/13
 
 
 yum install -y git
@@ -14,7 +14,7 @@ mkdir /var/nfsshare/devstuff
 mkdir /var/nfsshare/testing
 mkdir /var/nfsshare/home_dirs
 chmod -R 777 /var/nfsshare/
-systemctl enable rcpbind
+systemctl enable rpcbind
 systemctl enable nfs-server
 systemctl enable nfs-lock
 systemctl enable nfs-idmap
