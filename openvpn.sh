@@ -5,9 +5,8 @@
  tar xfz /tmp/easyrsa
  sudo mkdir /etc/openvpn/easy-rsa
  sudo cp -rf easy-rsa-old-2.3.3/easy-rsa/2.0/* /etc/openvpn/easy-rsa
- sudo cp /usr/share/doc/openvpn-2.4.4/sample/sample-config-files/server.conf /etc/openvpn
- yum install nano
- sudo nano /etc/openvpn/server.conf
+ sudo cp /usr/share/doc/openvpn-2.4.8/sample/sample-config-files/server.conf /etc/openvpn
+ #sudo vim /etc/openvpn/server.conf
  # uncomment push "redirect-gateway def1 bypass-dhcp"
  # point to google's dos servers
  #push "dhcp-option DNS 8.8.8.8"
@@ -32,16 +31,16 @@ yum install bind-utils
 # export KEY NAME="server"
 # export KEY OU="College"
 
-cd /etc/openvpn/easy-rsasource ./vars
-source .vars
+cd /etc/openvpn/easy-rsa
+source ./vars
 ./clean-all
 ./build-ca
 # Note, this takes manually pressing enter a couple of times... how to automate...
 # so does the below
 ./build-key-server server
 ./build-dh
-cd /etc/openvpn/easy-rsakeys
-cp dh2048.pem ca.crt server .crt server.key /etc/openVPN
+cd /etc/openvpn/easy-rsa/keys
+cp dh2048.pem ca.crt server .crt server.key /etc/openvpn
 # Each client will also need a certificate in order for the OpenVPN server to authenticate it.
 # These keys and certificates will be created on the server and then you will have to copy them over to your clients,
 # which we will do in a later step. It's advised that you generate separate keys and certificates for each client you
@@ -53,7 +52,7 @@ cd /etc/openvpn/easy-rsa
 # press enter and y to certify the cery
 cp /etcopenvpn/easy-rsa/openssl-1.0.0cnf /etc.openvpn/easy-rsa/openssl.cnf
 firewall-cmd --get-active-zones
-firewall-cmd --zone=trusted --add-service openVPN
+firewall-cmd --zone=trusted --add-service openvpn
 firewall-cmd --zone=trusted --add-service openvpn --permanent
 firewall-cmd --list-services --zone=trusted
 # at this point we have to open tcp and udp to port 1194 on google cloud firewall
