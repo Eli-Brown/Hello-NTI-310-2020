@@ -33,7 +33,7 @@ yum install bind-utils
 #export KEY_ORG="DigitalOcean"
 #export KEY_EMAIL="sammy@example.com"
 #export KEY_EMAIL=sammy@example.com
-#export KEY_CN=openvpn.example.com
+#export KEY_CN=./build-key-server server./build-dh
 #export KEY_NAME="server"
 #export KEY_OU="Community"
 
