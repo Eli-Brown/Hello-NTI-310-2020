@@ -1,6 +1,7 @@
 #!/bin/bash
 #http://35.235.89.72/phpldapadmin/cmd.php (Links to an external site.)
 #Password - ZfYtM7Gc
+#ldap server setup
 
 yum install -y git
 cd /tmp
@@ -67,7 +68,8 @@ echo "phpldapadmin is now up and running"
 echo "we are configuring ldap and ldapadmin"
 
 #Generates and stores new passwd securely
-newsecret=$(slappasswd -s "$newsecret")
+newsecret="P@ssw0rd1"
+#newsecret=$(slappasswd -s "$newsecret")
 echo -n "$newsecret" > /root/ldap_admin_pass
 chmod 0600 /root/ldap_admin_pass
 
