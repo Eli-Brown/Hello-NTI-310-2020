@@ -32,7 +32,7 @@ sed -i 's/#nss_base_group ou=Group,dc=padl,dc=com\?one/nss_base_group          o
 sed -i 's/#nss_base_shadow  ou=People,dc=padl,dc=com\?one/nss_base_shadow ou=People,dc=nti310,dc=local/g' /etc/ldap.conf
 (2 tabs) pw and shadow are single spaces not escaping the question mark
 systemctl restart sshd
-echo "m1xL.ui5" > /etc/ldap.secret
+echo "P@ssw0rd1" > /etc/ldap.secret
 chmod 0600 /etc/ldap.secret
 systemctl restart libnss-ldap
 apt-get -y install debconf-utils
