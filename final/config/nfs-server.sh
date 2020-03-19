@@ -1,4 +1,5 @@
 #1/bin/bash
+#centos
 # put this at the beginning of each of your scripts
 # it will remove the centos7 repos, which are flakey right now
 # and put in our (more stable) repositories.
