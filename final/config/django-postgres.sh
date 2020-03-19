@@ -68,8 +68,9 @@ enabled=1" >> /etc/yum.repos.d/local-repo.repo
 # fun django tutorial https://data-flair.training/blogs/django-migrations-and-database-connectivity/
 # These are the really tricky sed and perl lines from the handout.  Please see me for the handout.
 
-yum -y install python2-pip python3-pip python3-devel python2-devel gcc postgresql-server postgresql-devel postgresql-contrib
+yum -y install python2-pip python3-pip python3-devel python2-devel gcc postgresql-server postgresql-devel postgresql-contrib git
 pip install --upgrade pippip install virtualenv
+git clone https://github.com/Eli-Brown/Hello-NTI-310-2020.git
 mkdir /opt/nti310
 cd /opt/nti310
 virtualenv nti310env
