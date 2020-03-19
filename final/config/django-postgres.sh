@@ -91,5 +91,6 @@ echo "class Specs(models.Model):
 #django admin user creation
 echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@newproject.com','NTI300NTI300')" | python manage.py shell   
 
-echo "*.info;mail.none;authpriv.none;cron.none   @logserv" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
+
+echo "*.info;mail.none;authpriv.none;cron.none   @rsyslog-server" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
 #Important: this should be the internal not external IP of the server or the dns name of your server.
