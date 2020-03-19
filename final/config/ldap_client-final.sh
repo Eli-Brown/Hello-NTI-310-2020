@@ -33,9 +33,9 @@ baseurl=http://34.71.91.10/updates/
 gpgcheck=0
 enabled=1" >> /etc/yum.repos.d/local-repo.repo
 
-apt-get update
+yum update
 export DEBIAN_FRONTEND=noninteractive
-apt-get --yes install libnss-ldap libpam-ldap ldap-utils nslcd debconf-utils git nfs-client
+yun install -y libnss-ldap libpam-ldap ldap-utils nslcd debconf-utils git nfs-client
 unset DEBIAN_FRONTEND
 
 apt-get install nfs-client nfs-common -y
@@ -60,7 +60,7 @@ systemctl restart sshd
 echo "P@ssw0rd1" > /etc/ldap.secret
 chmod 0600 /etc/ldap.secret
 systemctl restart libnss-ldap
-apt-get -y install debconf-utils
+yum install -y debconf-utils
 
 echo "ldap-auth-config        ldap-auth-config/rootbindpw     password
 ldap-auth-config        ldap-auth-config/bindpw password
