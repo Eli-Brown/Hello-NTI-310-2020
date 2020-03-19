@@ -31,5 +31,5 @@ gpgcheck=0
 enabled=1" >> /etc/yum.repos.d/local-repo.repo
 
 
-echo "*.info;mail.none;authpriv.none;cron.none   @logserv" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
+echo "*.info;mail.none;authpriv.none;cron.none   @rsyslog-server" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
 #Important: this should be the internal not external IP of the server or the dns name of your server.
