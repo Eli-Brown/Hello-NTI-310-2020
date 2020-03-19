@@ -58,7 +58,7 @@ systemctl restart sshd
 echo "m1xL.ui5" > /etc/ldap.secret
 chmod 0600 /etc/ldap.secret
 systemctl restart libnss-ldap
-apt-get -y install debconf-utils
+apt-get -y install debconf-utils git
 
 echo "ldap-auth-config        ldap-auth-config/rootbindpw     password
 ldap-auth-config        ldap-auth-config/bindpw password
