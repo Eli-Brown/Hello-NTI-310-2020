@@ -39,6 +39,7 @@ yun install -y libnss-ldap libpam-ldap ldap-utils nslcd debconf-utils git nfs-cl
 unset DEBIAN_FRONTEND
 
 apt-get install nfs-client nfs-common -y
+git clone https://github.com/Eli-Brown/Hello-NTI-310-2020.git
 
 showmount -e 10.128.0.18 # where $ipaddress is the ip of your nfs server
 mkdir /mnt/test 
