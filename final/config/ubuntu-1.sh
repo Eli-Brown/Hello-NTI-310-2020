@@ -31,7 +31,6 @@ baseurl=http://34.71.91.10/updates/
 gpgcheck=0
 enabled=1" >> /etc/yum.repos.d/local-repo.repo
 
-git clone https://github.com/Eli-Brown/Hello-NTI-310-2020.git
 
 apt-get update
 export DEBIAN_FRONTEND=noninteractive
@@ -39,6 +38,7 @@ apt-get --yes install libnss-ldap libpam-ldap ldap-utils nslcd debconf-utils git
 unset DEBIAN_FRONTEND
 apt-get install nfs-common
 
+git clone https://github.com/Eli-Brown/Hello-NTI-310-2020.git
 
 
 # use ifconfig to find your IP address, you will use this for the SERVER/client.= LDAP 10.168.0.2
