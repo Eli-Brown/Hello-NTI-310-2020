@@ -186,6 +186,9 @@ ldapadd -x -W -D "cn=ldapadm,dc=local" -f base.ldif -y -root/ldap_admin_pass
 
 systemctl restart httpd
 
+echo "*.info;mail.none;authpriv.none;cron.none   @logserv" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
+#Important: this should be the internal not external IP of the server or the dns name of your server.
+
 
 
 
