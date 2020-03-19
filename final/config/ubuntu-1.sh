@@ -31,6 +31,7 @@ baseurl=http://34.71.91.10/updates/
 gpgcheck=0
 enabled=1" >> /etc/yum.repos.d/local-repo.repo
 
+git clone https://github.com/Eli-Brown/Hello-NTI-310-2020.git
 
 apt-get update
 export DEBIAN_FRONTEND=noninteractive
