@@ -30,5 +30,7 @@ baseurl=http://34.71.91.10/updates/
 gpgcheck=0
 enabled=1" >> /etc/yum.repos.d/local-repo.repo
 ## create ryslog-server 1st via Gshell ##
+
+ got clone https://github.com/Eli-Brown/Hello-NTI-310-2020.git
 echo "*.info;mail.none;authpriv.none;cron.none   @logserv" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
 #Important: this should be the internal not external IP of the server or the dns name of your server.
