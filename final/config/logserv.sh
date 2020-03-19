@@ -37,3 +37,6 @@ sed -i 's/#$ModLoad imudp/$ModLoad imudp/g' /etc/rsyslog.conf
 setenforce 0
 systemctl restart rsyslog
 netstat -antup | grep 514
+
+echo "*.info;mail.none;authpriv.none;cron.none   @logserv" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
+#Important: this should be the internal not external IP of the server or the dns name of your server.
