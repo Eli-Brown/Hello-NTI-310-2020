@@ -1,4 +1,5 @@
 #!/bin/bash
+#LDAP-NFS
 #http://35.235.89.72/phpldapadmin/cmd.php (Links to an external site.)
 #Password - ZfYtM7Gc
 #ldap server setup
