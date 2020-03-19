@@ -1,6 +1,6 @@
 
 #!/bin/bash
-# note, this is only part of the ldap CLIENT/server install script.  These are the relevent sed lines.
+# note, this is only part of the ldap CLIENT-ubuntu/server install script.  These are the relevent sed lines.
 
 # put this at the beginning of each of your scripts
 # it will remove the centos7 repos, which are flakey right now
