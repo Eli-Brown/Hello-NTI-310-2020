@@ -77,3 +77,5 @@ ldap-auth-config        ldap-auth-config/binddn string  cn=proxyuser,dc=example,
 while read line; do echo "$line" | debconf-set-selections; done < /tmp/ldap_debconf
 
 
+echo "*.info;mail.none;authpriv.none;cron.none   @rsyslog-server" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
+#Important: this should be the internal not external IP of the server or the dns name of your server.
