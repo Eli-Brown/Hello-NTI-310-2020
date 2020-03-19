@@ -34,7 +34,8 @@ gpgcheck=0
 enabled=1" >> /etc/yum.repos.d/local-repo.repo
 
 
-yum -y install python2-pip python3-pip python3-devel python2-devel gcc postgresql-server postgresql-devel postgresql-contrib
+yum -y install python2-pip python3-pip python3-devel python2-devel gcc postgresql-server postgresql-devel postgresql-contrib git
+git clone https://github.com/Eli-Brown/Hello-NTI-310-2020.git
 
 postgresql-setup initdb
 systemctl start postgresql
