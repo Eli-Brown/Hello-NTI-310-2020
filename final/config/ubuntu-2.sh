@@ -30,7 +30,9 @@ baseurl=http://34.71.91.10/updates/
 gpgcheck=0
 enabled=1" >> /etc/yum.repos.d/local-repo.repo
 
-apt-get install nfs-client
+apt-get install nfs-client git -y
+
+git-clone https://github.com/Eli-Brown/Hello-NTI-310-2020.git
 
 showmount -e 10.128.0.18# where $ipaddress is the ip of your nfs server
 mkdir /mnt/test 
