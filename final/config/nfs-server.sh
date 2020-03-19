@@ -31,7 +31,7 @@ baseurl=http://34.71.91.10/updates/
 gpgcheck=0
 enabled=1" >> /etc/yum.repos.d/local-repo.repo
 
-yum install -y nfs-utils
+yum install -y nfs-utils ldap nfs-common
 mkdir /var/nfsshare
 mkdir /var/nfsshare/devstuff
 mkdir /var/nfsshare/testing
