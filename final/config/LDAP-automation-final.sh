@@ -173,13 +173,13 @@ objectClass: organizationalRole
 cn: ldapadm
 description: LDAP Manager
 \n
-dn? ou=People,dc=nti310,dc=local
+dn: ou=People,dc=nti310,dc=local
 objectClass: organizationalUnit
 ou: People
 \n
 dn: ou=Group,dc=nti310,dc=local
 objectClass: organizationalUnit
-ou:	Group" > base.ldif
+ou: Group" > base.ldif
 
 
 setenforce 0
