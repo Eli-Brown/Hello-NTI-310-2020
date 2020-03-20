@@ -1,6 +1,6 @@
 #/bin/bash
 
-apt-get install nfs-client git -y
+apt-get install nfs-client git ldap -y
 
 git-clone https://github.com/Eli-Brown/Hello-NTI-310-2020.git
 
