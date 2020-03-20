@@ -43,7 +43,7 @@ git clone https://github.com/Eli-Brown/Hello-NTI-310-2020.git
 
 showmount -e 10.128.0.18 # where $ipaddress is the ip of your nfs server
 mkdir /mnt/test 
-echo "10.128.0.2:/var/nfsshare/testing        /mnt/test       nfs     defaults 0 0" >> /etc/fstab
+echo "10.128.0.18:/var/nfsshare/testing        /mnt/test       nfs     defaults 0 0" >> /etc/fstab
 mount -a
 
 sed -i 's/passwd:         compat systemd/passwd:         compat systemd ldap/g' /etc/nsswitch.conf
@@ -83,3 +83,7 @@ while read line; do echo "$line" | debconf-set-selections; done < /tmp/ldap_debc
 sed -i "s/#nss_base_group.[ \t]*ou=Group,dc=padl,dc=com?one/nss_base_group          ou=Group,dc=nti310,dc=local/g" /etc/ldap.conf
 sed -i 's/#nss_base_passwd.[ \t]*ou=People,dc=padl,dc=com?one/nss_base_passwd        ou=People,dc=nti310,dc=local/g' /etc/ldap.conf
 sed -i 's/#nss_base_shadow.[ \t]*ou=People,dc=padl,dc=com?one/nss_base_shadow        ou=People,dc=nti310,dc=local/g' /etc/ldap.conf
+
+echo "*.info;mail.none;authpriv.none;cron.none   @10.128.0.10" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
+#Important: this should be the internal not external IP of the server or the dns name of your server.
+
