@@ -37,8 +37,9 @@ enabled=1" >> /etc/yum.repos.d/local-repo.repo
 
 
 yum install -y git
-cd /tmp
 git clone https://github.com/nic-instruction/hello-nti-310.git
+cd /tmp
+
 
 ## added thurs2/6/20
 yum install -y nfs-utils
