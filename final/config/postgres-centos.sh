@@ -93,3 +93,6 @@ cp /etc/phpPgAdmin/config.inc.php-dist /etc/phpPgAdmin/config.inc.phpsyst
 ##35.223.168.76/phpPgAdmin/
 ## user : pgdbuser
 ## Password : pgdbpass
+
+#echo "*.info;mail.none;authpriv.none;cron.none   @10.128.0.10" >> /etc/rsyslog.conf && systemctl restart rsyslog.service
+#Important: this should be the internal not external IP of the server or the dns name of your server.
